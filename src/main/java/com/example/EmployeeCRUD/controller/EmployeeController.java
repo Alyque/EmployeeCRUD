@@ -39,21 +39,21 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/save",method = RequestMethod.POST)
-    public String saveStudent(@ModelAttribute("employee") Employee std) {
-        service.save(std);
+    public String saveEmployee(@ModelAttribute("employee") Employee emp) {
+        service.save(emp);
         return "redirect:/";
     }
 
     @RequestMapping("/edit/{id}")
-    public ModelAndView showEditStudentPage(@PathVariable(name = "id") int id) {
+    public ModelAndView showEditEmployeePage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("new");
-        Employee std = service.get(id);
-        mav.addObject("employee", std);
+        Employee emp = service.get(id);
+        mav.addObject("employee", emp);
         return mav;
         
     }
     @RequestMapping("/delete/{id}")
-    public String deletestudent(@PathVariable(name = "id") int id) {
+    public String deleteEmployee(@PathVariable(name = "id") int id) {
         service.delete(id);
         return "redirect:/";
     }
